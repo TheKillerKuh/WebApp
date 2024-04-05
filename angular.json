@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "WebApp1": {
+    "WebApp": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -24,7 +24,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/web-app1",
+            "outputPath": "dist/web-app",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -37,9 +37,12 @@
               "src/assets"
             ],
             "styles": [
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "node_modules/bootstrap-icons/font/bootstrap-icons.min.css",
               "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": ["node_modules/bootstrap/dist/js/bootstrap.bundle.min.js","/src/assets/scripts/googleEvent.js"],
+            "prerender": false
           },
           "configurations": {
             "production": {
@@ -69,10 +72,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "WebApp1:build:production"
+              "buildTarget": "WebApp:build:production"
             },
             "development": {
-              "buildTarget": "WebApp1:build:development"
+              "buildTarget": "WebApp:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -80,7 +83,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "buildTarget": "WebApp1:build"
+            "buildTarget": "WebApp:build"
           }
         },
         "test": {

@@ -1,5 +1,5 @@
 {
-  "name": "web-app1",
+  "name": "web-app",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -17,7 +17,14 @@
     "@angular/forms": "^17.3.0",
     "@angular/platform-browser": "^17.3.0",
     "@angular/platform-browser-dynamic": "^17.3.0",
+    "@angular/platform-server": "^17.3.3",
     "@angular/router": "^17.3.0",
+    "@angular/ssr": "^17.3.3",
+    "@google-cloud/local-auth": "^2.1.0",
+    "bootstrap": "^5.3.3",
+    "bootstrap-icons": "^1.11.3",
+    "express": "^4.19.2",
+    "googleapis": "^105.0.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.14.3"
