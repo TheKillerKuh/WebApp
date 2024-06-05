@@ -1,0 +1,62 @@
+<div class="modal modal-xl fade" id="turnierItemDetail" tabindex="-1" aria-labelledby="exampleModalLabel">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Turnier Detail</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="clearForm()"></button>
+        </div>
+        <div class="modal-body">
+            <form [formGroup]="turnierForm" (ngSubmit)="onSubmit()">
+                <div class="container">
+                    <div class="row">
+                      <!-- Image Column (col-md-4) -->
+                      <div class="col-md-4">
+                        <div class="form-group">
+                            <label>Image</label>
+                            <div>
+                              <img class="h-100" [src]="imageurl" alt="Image" class="img-thumbnail">
+                            </div>
+                          </div>
+                      </div>
+                      <div class="col-md-8">
+
+                            <div class="form-group">
+                              <label>Title</label>
+                              <input type="text" class="form-control" formControlName="titel">
+                            </div>
+                            <div class="form-group">
+                              <label>Website</label>
+                              <input type="text" class="form-control" formControlName="website">
+                            </div>
+                            <div class="form-group">
+                              <label>Date</label>
+                              <input type="date" class="form-control" formControlName="datum">
+                            </div>
+                            <div class="form-group">
+                              <label>Description</label>
+                              <textarea class="form-control" formControlName="description"></textarea>
+                            </div>
+                            <div class="form-group">
+                              <label>Location</label>
+                              <input type="text" class="form-control" formControlName="location">
+                            </div>
+                            <div class="form-group">
+                              <label>Host</label>
+                              <input type="text" class="form-control" formControlName="host">
+                            </div>
+                            <div class="form-group">
+                                <label>Upload</label>
+                                <input type="file" class="form-control" formControlName="upload" (change)="onFileCchange($event)">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+              </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>

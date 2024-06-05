@@ -6,37 +6,9 @@ import { Turnier } from './turnier';
 })
 
 export class TurnierService {
-  turniers: Turnier[] = [
-    new Turnier(1,'UV Gföhl Beach Turnier','www.facebook.ccom',new Date(2024,8,3),'Beachturnier des UV Gföhl','Lake Jaidhof','Union Volleyball Gföhl'),
-    new Turnier(2,'UV Gföhl Beach Turnier 2','www.facebook.ccom',new Date(2024,8,3),'Beachturnier des UV Gföhl','Lake Jaidhof','Union Volleyball Gföhl'),
-    new Turnier(2,'UV Gföhl Beach Turnier 2','www.facebook.ccom',new Date(2024,8,3),'Beachturnier des UV Gföhl','Lake Jaidhof','Union Volleyball Gföhl'),
-    new Turnier(2,'UV Gföhl Beach Turnier 2','www.facebook.ccom',new Date(2024,8,3),'Beachturnier des UV Gföhl','Lake Jaidhof','Union Volleyball Gföhl'),
-    new Turnier(2,'UV Gföhl Beach Turnier 2','www.facebook.ccom',new Date(2024,8,3),'Beachturnier des UV Gföhl','Lake Jaidhof','Union Volleyball Gföhl'),
-    new Turnier(2,'UV Gföhl Beach Turnier 2','www.facebook.ccom',new Date(2024,8,3),'Beachturnier des UV Gföhl','Lake Jaidhof','Union Volleyball Gföhl'),
-    new Turnier(2,'UV Gföhl Beach Turnier 2','www.facebook.ccom',new Date(2024,8,3),'Beachturnier des UV Gföhl','Lake Jaidhof','Union Volleyball Gföhl'),
-    new Turnier(2,'UV Gföhl Beach Turnier 2','www.facebook.ccom',new Date(2024,8,3),'Beachturnier des UV Gföhl','Lake Jaidhof','Union Volleyball Gföhl'),
-    new Turnier(2,'UV Gföhl Beach Turnier 2','www.facebook.ccom',new Date(2024,8,3),'Beachturnier des UV Gföhl','Lake Jaidhof','Union Volleyball Gföhl'),
-    new Turnier(2,'UV Gföhl Beach Turnier 2','www.facebook.ccom',new Date(2024,8,3),'Beachturnier des UV Gföhl','Lake Jaidhof','Union Volleyball Gföhl'),
-    new Turnier(2,'UV Gföhl Beach Turnier 2','www.facebook.ccom',new Date(2024,8,3),'Beachturnier des UV Gföhl','Lake Jaidhof','Union Volleyball Gföhl'),
-    new Turnier(2,'UV Gföhl Beach Turnier 2','www.facebook.ccom',new Date(2024,8,3),'Beachturnier des UV Gföhl','Lake Jaidhof','Union Volleyball Gföhl'),
-    new Turnier(2,'UV Gföhl Beach Turnier 2','www.facebook.ccom',new Date(2024,8,3),'Beachturnier des UV Gföhl','Lake Jaidhof','Union Volleyball Gföhl'),
-    new Turnier(2,'UV Gföhl Beach Turnier 2','www.facebook.ccom',new Date(2024,8,3),'Beachturnier des UV Gföhl','Lake Jaidhof','Union Volleyball Gföhl'),
-    new Turnier(2,'UV Gföhl Beach Turnier 2','www.facebook.ccom',new Date(2024,8,3),'Beachturnier des UV Gföhl','Lake Jaidhof','Union Volleyball Gföhl'),
-    new Turnier(2,'UV Gföhl Beach Turnier 2','www.facebook.ccom',new Date(2024,8,3),'Beachturnier des UV Gföhl','Lake Jaidhof','Union Volleyball Gföhl'),
-    new Turnier(2,'UV Gföhl Beach Turnier 2','www.facebook.ccom',new Date(2024,8,3),'Beachturnier des UV Gföhl','Lake Jaidhof','Union Volleyball Gföhl'),
-    new Turnier(2,'UV Gföhl Beach Turnier 2','www.facebook.ccom',new Date(2024,8,3),'Beachturnier des UV Gföhl','Lake Jaidhof','Union Volleyball Gföhl'),
-    new Turnier(2,'UV Gföhl Beach Turnier 2','www.facebook.ccom',new Date(2024,8,3),'Beachturnier des UV Gföhl','Lake Jaidhof','Union Volleyball Gföhl'),
-    new Turnier(2,'UV Gföhl Beach Turnier 2','www.facebook.ccom',new Date(2024,8,3),'Beachturnier des UV Gföhl','Lake Jaidhof','Union Volleyball Gföhl'),
-    new Turnier(2,'UV Gföhl Beach Turnier 2','www.facebook.ccom',new Date(2024,8,3),'Beachturnier des UV Gföhl','Lake Jaidhof','Union Volleyball Gföhl'),
-    new Turnier(2,'UV Gföhl Beach Turnier 2','www.facebook.ccom',new Date(2024,8,3),'Beachturnier des UV Gföhl','Lake Jaidhof','Union Volleyball Gföhl'),
-    new Turnier(2,'UV Gföhl Beach Turnier 2','www.facebook.ccom',new Date(2024,8,3),'Beachturnier des UV Gföhl','Lake Jaidhof','Union Volleyball Gföhl'),
-    new Turnier(2,'UV Gföhl Beach Turnier 2','www.facebook.ccom',new Date(2024,8,3),'Beachturnier des UV Gföhl','Lake Jaidhof','Union Volleyball Gföhl'),
-    new Turnier(2,'UV Gföhl Beach Turnier 2','www.facebook.ccom',new Date(2024,8,3),'Beachturnier des UV Gföhl','Lake Jaidhof','Union Volleyball Gföhl'),
-    new Turnier(2,'UV Gföhl Beach Turnier 2','www.facebook.ccom',new Date(2024,8,3),'Beachturnier des UV Gföhl','Lake Jaidhof','Union Volleyball Gföhl'),
-    new Turnier(2,'UV Gföhl Beach Turnier 2','www.facebook.ccom',new Date(2024,8,3),'Beachturnier des UV Gföhl','Lake Jaidhof','Union Volleyball Gföhl'),
-    new Turnier(2,'UV Gföhl Beach Turnier 2','www.facebook.ccom',new Date(2024,8,3),'Beachturnier des UV Gföhl','Lake Jaidhof','Union Volleyball Gföhl'),
-    new Turnier(2,'UV Gföhl Beach Turnier 2','www.facebook.ccom',new Date(2024,8,3),'Beachturnier des UV Gföhl','Lake Jaidhof','Union Volleyball Gföhl')
-  ];
+  turniers: Turnier[];
+
+  currentTurnier: Turnier;
 
   setRecipes(turniers: Turnier[]) {
     this.turniers = turniers;

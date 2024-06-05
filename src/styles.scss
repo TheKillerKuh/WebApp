@@ -1,3 +1,8 @@
 .full_height_content{
     height: calc(100vh - 56px - 4rem);
 }
+
+.pad-scrollbar {
+    padding-left: calc(100vw - 100%);
+    padding-top: 2rem;
+}

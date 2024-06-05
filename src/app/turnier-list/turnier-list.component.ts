@@ -12,6 +12,7 @@ import {DataStorageService} from "../shared/data-storage.service";
 export class TurnierListComponent {
   turniers: Turnier[];
   showCards: boolean = false;
+  currentTurnier: Turnier;
 
   constructor(
     private dataStorageService: DataStorageService,
@@ -22,6 +23,12 @@ export class TurnierListComponent {
     this.dataStorageService.fetchRecipes().subscribe((tournaments) => {
       this.turniers = tournaments;
       });
-  }
+    }
+
+  setCurrentTurnier(turnier: Turnier){
+        
+        this.currentTurnier = turnier;
+        console.log('Current tournament:', this.currentTurnier);
+  }    
 
   }

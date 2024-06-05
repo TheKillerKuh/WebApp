@@ -12,17 +12,16 @@
     <i class="bi bi-postcard"></i>
 </div>
 
-
-<!--<div  class="bd-example-snippet bd-code-snippet" *ngIf="showCards">
+<div  class="bd-example-snippet bd-code-snippet" *ngIf="showCards">
     <div class="bd-example m-0 border-0">
         <div class="row  row-cols-1 row-cols-md-2 g-4">
             <app-turnier-item-card *ngFor="let item of turniers; let i = index" [turnierItem] = item [index]= i></app-turnier-item-card>
         </div>
     </div>
-</div>-->
+</div>
 
-<!--*ngIf="!showCards"-->
-<table class="table" >
+
+<table class="table" *ngIf="!showCards">
     <thead>
       <tr>
         <th>#</th>
@@ -32,8 +31,18 @@
       </tr>
     </thead>
     <tbody>
-            <tr app-turnier-item-tablerow *ngFor="let itemrow of turniers; let i = index" [turnierItem] = itemrow [index]= i></tr>
+        <tr *ngFor="let itemrow of turniers; let i = index">
+            <td>{{itemrow.titel}}</td>
+            <td>{{itemrow.description}}</td>
+            <td>{{itemrow.location}}</td>
+            <td>{{itemrow.host}}</td>
+            <td>
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#turnierItemDetail" (click)="setCurrentTurnier(itemrow)">
+                    Detail
+                </button>
+            </td>
+        </tr>
     </tbody>
-  </table>
-  
-  
+</table>
+
+<app-turnier-item-detail *ngIf="currentTurnier" [turnierItemChild]=currentTurnier></app-turnier-item-detail>

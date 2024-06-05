@@ -2,3 +2,9 @@
 <td>{{turnierItem.description}}</td>
 <td>{{turnierItem.location}}</td>
 <td>{{turnierItem.host}}</td>
+<td>
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#turnierItemDetail" (click)="setCurrentTurnier">
+        Detail
+    </button>
+    <app-turnier-item-detail [turnierItemChild]=turnierItem></app-turnier-item-detail>
+</td>

@@ -9,8 +9,12 @@ import { HeaderComponent } from './header/header.component';
 import { KalenderComponent } from './kalender/kalender.component';
 import { HomeComponent } from './home/home.component';
 import {HttpClientModule} from "@angular/common/http";
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TurnierItemTablerowComponent } from './turnier-list/turnier-item-tablerow/turnier-item-tablerow.component';
+import { TurnierItemDetailComponent } from './turnier-list/turnier-item-detail/turnier-item-detail.component';
+import {AngularFireModule} from "@angular/fire/compat";
+import {AngularFireStorageModule} from "@angular/fire/compat/storage";
+import { environment } from '../enviroments/enviroment';
 
 @NgModule({
   declarations: [
@@ -20,13 +24,17 @@ import { TurnierItemTablerowComponent } from './turnier-list/turnier-item-tabler
     HeaderComponent,
     KalenderComponent,
     HomeComponent,
-    TurnierItemTablerowComponent
+    TurnierItemTablerowComponent,
+    TurnierItemDetailComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireStorageModule
   ],
   providers: [],
   bootstrap: [AppComponent]

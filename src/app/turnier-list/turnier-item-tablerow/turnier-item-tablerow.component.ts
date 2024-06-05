@@ -14,4 +14,8 @@ export class TurnierItemTablerowComponent {
   constructor(private tunierService: TurnierService,
               private router: Router) {
   }
+
+  setCurrentTurnier (){
+    this.tunierService.currentTurnier = this.turnierItem;
+  }
 }
