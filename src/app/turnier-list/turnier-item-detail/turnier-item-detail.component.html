@@ -5,7 +5,7 @@
           <h1 class="modal-title fs-5" id="exampleModalLabel">Turnier Detail</h1>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="clearForm()"></button>
         </div>
-        <div class="modal-body">
+        <div class="modal-body" style="height: 55vh;">
             <form [formGroup]="turnierForm" (ngSubmit)="onSubmit()">
                 <div class="container">
                     <div class="row">
@@ -14,7 +14,7 @@
                         <div class="form-group">
                             <label>Image</label>
                             <div>
-                              <img class="h-100" [src]="imageurl" alt="Image" class="img-thumbnail">
+                              <img style="max-height: 50vh;" [src]="imageurl" alt="Image" class="img-thumbnail">
                             </div>
                           </div>
                       </div>
@@ -22,27 +22,52 @@
 
                             <div class="form-group">
                               <label>Title</label>
-                              <input type="text" class="form-control" formControlName="titel">
+                              <input readonly type="text" class="form-control" formControlName="titel">
+                            </div>
+                            <div class="form-group">
+                              <label>Gastgeber</label>
+                              <input readonly type="text" class="form-control" formControlName="host">
+                            </div>
+                            <div class="form-row" style="display: flex;">
+                              <div class="form-group col-md-6">
+                                <label>Datum</label>
+                                <input readonly type="date" class="form-control" formControlName="date">
+                              </div>
+                              <div class="form-group col-md-6">
+                                <label>Startzeit</label>
+                                <input readonly type="text" class="form-control" formControlName="start_time">
+                              </div>
+                            </div>
+
+                            <div class="form-group">
+                              <label>Austragungsort</label>
+                              <input readonly type="text" class="form-control" formControlName="location">
+                            </div>
+                            <div class="form-group">
+                              <label>Veranstalter</label>
+                              <input readonly type="text" class="form-control" formControlName="host">
+                            </div>
+                            <div class="form-row" style="display: flex;">
+                              <div class="form-group col-md-6">
+                                <label>Modus</label>
+                                <input readonly type="text" class="form-control" formControlName="modi">
+                              </div>
+                              <div class="form-group col-md-6">
+                                <label>Startgeld</label>
+                                <input readonly type="text" class="form-control" formControlName="entry_fee">
+                              </div>
+                          </div>
+                            <div class="form-group">
+                              <label>Anmeldung</label>
+                              <input readonly type="text" class="form-control" formControlName="registration">
                             </div>
                             <div class="form-group">
                               <label>Website</label>
-                              <input type="text" class="form-control" formControlName="website">
-                            </div>
-                            <div class="form-group">
-                              <label>Date</label>
-                              <input type="date" class="form-control" formControlName="datum">
+                              <input readonly type="text" class="form-control" formControlName="website">
                             </div>
                             <div class="form-group">
                               <label>Description</label>
-                              <textarea class="form-control" formControlName="description"></textarea>
-                            </div>
-                            <div class="form-group">
-                              <label>Location</label>
-                              <input type="text" class="form-control" formControlName="location">
-                            </div>
-                            <div class="form-group">
-                              <label>Host</label>
-                              <input type="text" class="form-control" formControlName="host">
+                              <textarea readonly class="form-control" formControlName="description"></textarea>
                             </div>
                             <div class="form-group">
                                 <label>Upload</label>
@@ -55,7 +80,7 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="submit" class="btn btn-primary">Save changes</button>
+          <button type="submit" class="btn btn-primary" disabled>Save changes</button>
         </div>
       </div>
     </div>

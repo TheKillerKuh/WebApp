@@ -27,16 +27,22 @@ export class DataStorageService {
         'https://volleyballturniereoe-9f892-default-rtdb.europe-west1.firebasedatabase.app/tournaments.json'
       )
       .pipe(
-        map(recipes => {
-          return recipes.map(recipe => {
+        map(tournaments  => {
+          return tournaments.map(tournament => {
             return {
-              ...recipe
+              ...tournament,
+              date: this.parseDate(tournament.date.toString())
             };
           });
         }),
-        tap(recipes => {
-          return recipes;
+        tap(tournaments => {
+          return tournaments;
         })
       )
+  }
+
+  private parseDate(dateString: String): Date {
+    const [day, month, year] = dateString.split('.').map(part => parseInt(part, 10));
+    return new Date(year, month - 1, day); // month is 0-indexed in JavaScript Date
   }
 }

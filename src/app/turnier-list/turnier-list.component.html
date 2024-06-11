@@ -24,19 +24,28 @@
 <table class="table" *ngIf="!showCards">
     <thead>
       <tr>
-        <th>#</th>
         <th>Titel</th>
-        <th>Bezeichnung</th>
-        <th>Ort</th>
+        <th>Datum</th>
+        <th>Startzeit (Eintreffen)</th>
+        <th>Modus</th>
+        <th>€</th>
+        <th>Veranstalter</th>
+        <th>Adresse</th>
+        <th style="max-width: 150px;">Anmeldung</th>
+        <th></th>
       </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let itemrow of turniers; let i = index">
-            <td>{{itemrow.titel}}</td>
-            <td>{{itemrow.description}}</td>
-            <td>{{itemrow.location}}</td>
-            <td>{{itemrow.host}}</td>
-            <td>
+        <tr *ngFor="let itemrow of turniers; let i = index" >
+            <td [ngClass]="{ 'invalid': isDateExpired(itemrow.date) }">{{itemrow.titel}}</td>
+            <td [ngClass]="{ 'invalid': isDateExpired(itemrow.date) }">{{itemrow.date.toLocaleDateString()}}</td>
+            <td [ngClass]="{ 'invalid': isDateExpired(itemrow.date) }">{{itemrow.start_time}}</td>
+            <td [ngClass]="{ 'invalid': isDateExpired(itemrow.date) }">{{itemrow.modi}}</td>
+            <td [ngClass]="{ 'invalid': isDateExpired(itemrow.date) }">{{itemrow.entry_fee}} €</td>
+            <td [ngClass]="{ 'invalid': isDateExpired(itemrow.date) }">{{itemrow.host}}</td>
+            <td [ngClass]="{ 'invalid': isDateExpired(itemrow.date) }">{{itemrow.location}}</td>
+            <td [ngClass]="{ 'invalid': isDateExpired(itemrow.date) }" style="max-width: 150px; overflow-wrap: break-word;">{{itemrow.registration}}</td>
+            <td [ngClass]="{ 'invalid': isDateExpired(itemrow.date) }">
                 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#turnierItemDetail" (click)="setCurrentTurnier(itemrow)">
                     Detail
                 </button>

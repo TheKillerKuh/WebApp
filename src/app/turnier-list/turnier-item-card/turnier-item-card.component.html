@@ -4,12 +4,15 @@
         <div class="col-md-4">
           <img [src]="imageurl" alt="Image" class="img-thumbnail">
         </div>
-        <div class="col-md-8">
+        <div class="col-md-8" [ngClass]="{ 'invalid': isDateExpired(turnierItem.date) }">
           <div class="card-body">
             <h5 class="card-title">{{turnierItem.titel}}</h5>
-            <p class="card-text">{{turnierItem.description}}</p>
-            <p class="card-text">{{turnierItem.location}}</p>
             <p class="card-text">{{turnierItem.host}}</p>
+            <p class="card-text">{{turnierItem.location}}</p>
+            <p class="card-text">{{turnierItem.date.toLocaleDateString()}} - {{turnierItem.start_time}}</p>
+            <p class="card-text" *ngIf="turnierItem.entry_fee.toString() !== '0'">{{turnierItem.entry_fee}} €</p>
+            <p class="card-text" *ngIf="turnierItem.entry_fee.toString() === '0'">free Entry</p>
+            <p class="card-text">{{turnierItem.registration}}</p>
           </div>
         </div>
       </div>

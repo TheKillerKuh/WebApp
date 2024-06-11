@@ -31,12 +31,18 @@ export class TurnierItemDetailComponent {
     this.turnierForm = this.fb.group({
       titel: [this.turnierItemChild.titel, Validators.required],
       website: [this.turnierItemChild.website, Validators.required],
-      date: [this.turnierItemChild.date, Validators.required],
+      date: [this.turnierItemChild.date, Validators.required, ],
       description: [this.turnierItemChild.description, Validators.required],
       location: [this.turnierItemChild.location, Validators.required],
       host: [this.turnierItemChild.host, Validators.required],
       imagePath: [this.turnierItemChild.imagePath],
-      upload: []
+      modi : [this.turnierItemChild.modi, Validators.required],
+      player_cnt : [this.turnierItemChild.player_cnt, Validators.required],
+      is_mixed : [this.turnierItemChild.is_mixed, Validators.required],
+      start_time : [this.turnierItemChild.start_time, Validators.required],
+      registration : [this.turnierItemChild.registration, Validators.required],
+      entry_fee : [this.turnierItemChild.entry_fee],
+      upload: [{value: "", disabled: true}]
     });
 
     if(this.turnierItemChild.imagePath)
@@ -53,7 +59,19 @@ export class TurnierItemDetailComponent {
       this.imageurl = "assets/images/placeholder.jpg";
       this.isPlaceholder = true;
     }
+
+    this.turnierForm.get('date').patchValue(this.formatDate(this.turnierItemChild.date));
     console.log('Received turnier:', this.turnierItemChild); // Add this line
+  }
+
+  private formatDate(date) {
+    const d = new Date(date);
+    let month = '' + (d.getMonth() + 1);
+    let day = '' + d.getDate();
+    const year = d.getFullYear();
+    if (month.length < 2) month = '0' + month;
+    if (day.length < 2) day = '0' + day;
+    return [year, month, day].join('-');
   }
 
 

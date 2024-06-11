@@ -29,6 +29,11 @@ export class TurnierListComponent {
         
         this.currentTurnier = turnier;
         console.log('Current tournament:', this.currentTurnier);
+        this.turniers[1].date.toLocaleDateString();
   }    
+
+  isDateExpired(date: Date): boolean {
+    return date < new Date();
+  }
 
   }

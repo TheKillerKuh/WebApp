@@ -42,5 +42,9 @@ export class TurnierItemCardComponent {
     }
  }
 
+ isDateExpired(date: Date): boolean {
+  return date < new Date();
+}
+
 
 }
