@@ -20,8 +20,8 @@
     </div>
 </div>
 
-
-<table class="table" *ngIf="!showCards">
+<div class="table-responsive" *ngIf="!showCards">
+<table class="table table-hover" >
     <thead>
       <tr>
         <th>Titel</th>
@@ -53,5 +53,5 @@
         </tr>
     </tbody>
 </table>
-
+</div>
 <app-turnier-item-detail *ngIf="currentTurnier" [turnierItemChild]=currentTurnier></app-turnier-item-detail>
