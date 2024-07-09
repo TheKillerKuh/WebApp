@@ -11,7 +11,7 @@ import {DataStorageService} from "../shared/data-storage.service";
 
 export class TurnierListComponent {
   turniers: Turnier[];
-  showCards: boolean = false;
+  showCards: boolean = true;
   currentTurnier: Turnier;
 
   constructor(
@@ -21,7 +21,10 @@ export class TurnierListComponent {
 
   ngOnInit() {
     this.dataStorageService.fetchRecipes().subscribe((tournaments) => {
-      this.turniers = tournaments;
+      const today = new Date();
+      this.turniers = tournaments.filter(tournament => new Date(tournament.date) >= today);
+    
+      //this.turniers = tournaments;
       });
     }
 
